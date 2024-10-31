@@ -1,11 +1,13 @@
 // HackingSimulator.js
 import React, { useEffect, useState, useRef } from 'react';
+import { playSound } from '../helpers/terminalHelpers';
 import '../styles/hackingSimulator.css';
 
 const HackingSimulator = ({ onComplete }) => {
     const [output, setOutput] = useState([]);
     const [isAccessDenied, setIsAccessDenied] = useState(false);
     const terminalRef = useRef(null);
+    const audioRef = useRef(new Audio(process.env.PUBLIC_URL + '/assets/audio/alarm.mp3'));
 
     useEffect(() => {
         const hackingMessages = [
@@ -37,7 +39,8 @@ const HackingSimulator = ({ onComplete }) => {
 
     useEffect(() => {
         if (isAccessDenied) {
-          const accessDeniedMessage = (
+            playSound(audioRef);
+            const accessDeniedMessage = (
             <div className="access-denied">
                 <span className="skull">💀</span>
                 ACCESS DENIED

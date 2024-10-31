@@ -3,7 +3,7 @@
 const PROMPT_MESSAGE = "🌌 <em>Enter 'menu' or 'help' to start or try a secret command if you're a real hacker...</em>";
 
 export const TERMINAL_INTRO = [
-  "<b>👾 Welcome</b> to the terminal of Kevin AKA <i>🥤 kevinou 🥤</i>!",
+  "<b>👾 Welcome</b> to the terminal of Kevin AKA <i>🥤 kevin_ganem 🥤</i>!",
   "",
   PROMPT_MESSAGE,
 ];
