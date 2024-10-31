@@ -1,4 +1,5 @@
 /* terminal.css */
+
 .terminal-container {
   display: flex;
   flex-direction: column;
@@ -21,9 +22,19 @@ body {
   border: 3px solid #00ff00;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-  width: 100%;
-  max-width: 100%;
   background-color: black;
+  max-width: 90%;      /* Restrict width on small screens */
+  min-width: 800px;    /* Maintain readability */
+  width: 100%;          /* Default width for mid-size screens */
+  height: 80vh;
+}
+
+@media (max-width: 768px) {
+  .terminal-window {
+    width: 95%;          /* Adjust width for tablets and small screens */
+    min-width: unset;
+    height: 70vh;
+  }
 }
 
 .terminal-header {
@@ -60,8 +71,7 @@ body {
 .terminal {
   border: 1px solid green;
   padding: 10px;
-  height: 400px;
-  width: 600px;
+  height: calc(100% - 60px); /* Adjust height within terminal window */
   overflow-y: auto;
   color: green;
   white-space: pre-wrap;

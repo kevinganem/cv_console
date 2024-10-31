@@ -1,5 +1,5 @@
 // terminalCommands.js
-const PROMPT_MESSAGE = "🌌 <em>Enter 'menu' or 'help' to start or try a secret command if you're a real hacker...</em>";
+const PROMPT_MESSAGE = "🌌 <b>Enter</b> <i>menu</i> or <i>help</i> to start or try a <i>secret</i> command if you're a real hacker...";
 
 export const TERMINAL_INTRO = [
   "<b>👾 Welcome</b> to the terminal of Kevin AKA <i>🥤 kevin_ganem 🥤</i>!",
@@ -49,16 +49,18 @@ const experienceCommands = {
 
 const skillsCommands = {
   frontend: `<b>🖥️ _Front-end Skills_</b>
-    ➤ HTML
-    ➤ CSS
+    ➤ HTML / CSS
     ➤ React/React Native
     ➤ Next.js
+    ➤ Flutter (beginner)
     ➤ E-commerce platforms (Wix, Shopify, Wordpress)\n
     ${PROMPT_MESSAGE}`,
 
   backend: `<b>⚙️ _Back-end Skills_</b>
     ➤ Node.js
+    ➤ Javascript
     ➤ GraphQL
+    ➤ Python (beginner)
     ➤ MongoDB\n
     ${PROMPT_MESSAGE}`,
 
