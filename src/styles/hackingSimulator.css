@@ -8,6 +8,8 @@
   box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
   height: 300px;
   overflow-y: auto;
+  scrollbar-width: none;
+  overflow-y: scroll;
 }
 
 .hacking-line {
