@@ -43,7 +43,7 @@ const HackingSimulator = ({ onComplete }) => {
 
     useEffect(() => {
         if (isAccessDenied) {
-            playSound(audioRef);
+            playSound(audioRef.current);
             const accessDeniedMessage = (
                 <div className="access-denied">
                     <span className="skull">💀</span>
@@ -55,7 +55,7 @@ const HackingSimulator = ({ onComplete }) => {
 
             setTimeout(() => {
                 setIsLoading(true); // Start loading bar after ACCESS DENIED
-            }, 3000); // Adjust delay if needed
+            }, 3000);
         }
     }, [isAccessDenied]);
 
@@ -71,7 +71,7 @@ const HackingSimulator = ({ onComplete }) => {
                         return 100;
                     }
                 });
-            }, 500); // Adjust speed of loading progress
+            }, 500);
         }
     }, [isLoading, onComplete]);
 

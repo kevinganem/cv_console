@@ -1,5 +1,4 @@
 // terminalCommands.js
-
 const PROMPT_MESSAGE = "🌌 <em>Enter 'menu' or 'help' to start or try a secret command if you're a real hacker...</em>";
 
 export const TERMINAL_INTRO = [

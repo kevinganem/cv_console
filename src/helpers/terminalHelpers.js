@@ -3,9 +3,9 @@ import { TERMINAL_INTRO, allCommands } from './terminalCommands';
 
 // Plays typing sound effect
 export const playSound = (audioRef) => {
-    if (audioRef.current) {
-        audioRef.current.currentTime = 0;
-        audioRef.current.play();
+    if (audioRef) {
+        audioRef.currentTime = 0;
+        audioRef.play();
     }
 };
 
