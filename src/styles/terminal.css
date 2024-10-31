@@ -1,0 +1,123 @@
+/* terminal.css */
+.terminal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #130a16;
+}
+
+.terminal-window {
+  border: 3px solid #00ff00;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  width: 100%;
+  max-width: 100%;
+  background-color: black;
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.button {
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close {
+  background-color: #ff605c; /* Red */
+}
+
+.minimize {
+  background-color: #ffbd44; /* Yellow */
+}
+
+.maximize {
+  background-color: #00ca56; /* Green */
+}
+
+.terminal {
+  border: 1px solid green;
+  padding: 10px;
+  height: 400px;
+  width: 600px;
+  overflow-y: auto;
+  color: green;
+  white-space: pre-wrap;
+  scrollbar-width: thin;
+  scrollbar-color: green black;
+}
+
+.terminal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal::-webkit-scrollbar-thumb {
+  background-color: green;
+  border-radius: 4px;
+}
+
+.terminal::-webkit-scrollbar-track {
+  background: black;
+}
+
+.blink-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background-color: green;
+  border: 1px solid green;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+  color: red;
+}
+
+.terminal p:hover {
+  color: lime;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  transform: scale(1.01);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hidden-input {
+  opacity: 0;
+  position: absolute;
+}
