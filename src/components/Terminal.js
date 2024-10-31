@@ -12,7 +12,7 @@ const Terminal = () => {
     const [isHacking, setIsHacking] = useState(false); // State to manage hacking simulation
     const terminalRef = useRef(null);
     const inputRef = useRef(null);
-    const audioRef = useRef(new Audio('/assets/audio/type-sound.mp3'));
+    const audioRef = useRef(new Audio(process.env.PUBLIC_URL + '/assets/audio/type-sound.mp3'));
 
     const handleChange = (e) => {
         setInput(e.target.value);
