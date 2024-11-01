@@ -1,4 +1,3 @@
-// Terminal.js
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { scrollToBottom, handleCommand, TextFormatter } from '../helpers/terminalHelpers';
@@ -9,18 +8,28 @@ import '../styles/terminal.css';
 const Terminal = () => {
     const [output, setOutput] = useState(TERMINAL_INTRO);
     const [input, setInput] = useState("");
-    const [isHacking, setIsHacking] = useState(false); // State to manage hacking simulation
+    const [isHacking, setIsHacking] = useState(false);
     const terminalRef = useRef(null);
     const inputRef = useRef(null);
-    const audioRef = useRef({
-        default: new Audio(process.env.PUBLIC_URL + '/assets/audio/type-sound.mp3'),
-        unknown: new Audio(process.env.PUBLIC_URL + '/assets/audio/wrong.mp3'),
-        clear: new Audio(process.env.PUBLIC_URL + '/assets/audio/clear.mp3'),
-        download: new Audio(process.env.PUBLIC_URL + '/assets/audio/download.mp3')
-    });
 
     const handleChange = (e) => {
         setInput(e.target.value);
+    };
+
+    const handleSend = () => {
+        const command = input.toLowerCase().trim();
+        setInput('');
+        if (command === "secret") {
+            setIsHacking(true);
+            setOutput([]);
+        } else {
+            handleCommand(command, setOutput);
+        }
+        inputRef.current.focus();
+    };
+
+    const handleInput = (e) => {
+        if (e.key === 'Enter') handleSend();
     };
 
     useEffect(() => {
@@ -30,30 +39,6 @@ const Terminal = () => {
     useEffect(() => {
         inputRef.current.focus();
     }, []);
-
-    const handleInput = (e) => {
-        if (e.key === 'Enter') {
-            const command = input.toLowerCase().trim();
-            setInput('');
-            if (command === "secret") {
-                setIsHacking(true);
-                setOutput([]);
-            } else {
-                handleCommand(command, setOutput, audioRef.current);
-            }
-            inputRef.current.focus();
-        }
-    };
-
-    const handleTerminalClick = () => {
-        inputRef.current.focus();
-    };
-
-    const handleHackingComplete = () => {
-        setIsHacking(false);
-        scrollToBottom(terminalRef);
-        setOutput(TERMINAL_INTRO);
-    };
 
     return (
         <div className="terminal-window">
@@ -66,9 +51,9 @@ const Terminal = () => {
                 <h1 style={{ color: '#00ff00', fontSize: '1.5em', margin: '0' }}>🥤 kevin_ganem 🥤</h1>
                 <h1 style={{ color: '#00ff00', fontSize: '1em', margin: '0' }}>npm start</h1>
             </div>
-            <div className="terminal" ref={terminalRef} onClick={handleTerminalClick}>
+            <div className="terminal" ref={terminalRef} onClick={() => inputRef.current.focus()}>
                 {isHacking ? (
-                    <HackingSimulator onComplete={handleHackingComplete} />
+                    <HackingSimulator onComplete={() => setIsHacking(false)} />
                 ) : (
                     output.map((line, index) => (
                         <motion.p
@@ -77,25 +62,25 @@ const Terminal = () => {
                             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                             transition={{ duration: 0.1, delay: index * 0.005 }}
                             className={line.includes("Error") ? "error glitch" : ""}
-                            style={{ color: typeof line === 'string' && line.includes("Error") ? 'red' : 'green' }}
+                            style={{ color: line.includes("Error") ? 'red' : 'green' }}
                         >
                             <TextFormatter text={line} />
                         </motion.p>
                     ))
                 )}
-                <div style={{ display: 'inline' }}>
-                    <span> &gt; {input}</span>
-                    <span className="blink-cursor" />
+                <div className="input-container">
+                    <span>&gt;</span>
+                    <input
+                        ref={inputRef}
+                        type="text"
+                        className="hidden-input"
+                        value={input}
+                        onChange={handleChange}
+                        onKeyDown={handleInput}
+                    />
+                    <button className="send-button" onClick={handleSend}>Send</button>
                 </div>
             </div>
-            <input
-                ref={inputRef}
-                type="text"
-                style={{ opacity: 0, position: 'absolute' }}
-                value={input}
-                onChange={handleChange}
-                onKeyDown={handleInput}
-            />
         </div>
     );
 };

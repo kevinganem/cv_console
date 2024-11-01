@@ -1,3 +1,6 @@
+/* terminal.css */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap');
+
 /* Container to center the terminal */
 .terminal-container {
   display: flex;
@@ -16,6 +19,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #130a16;
+  font-family: 'Fira Code', monospace;
 }
 
 /* Main terminal window */
@@ -24,20 +28,54 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
   background-color: black;
-  max-width: 90%;      /* Limits the width on smaller screens */
-  min-width: 800px;    /* Ensures readability on larger screens */
-  width: 100%;         /* Full width for mid-size screens */
-  height: 80vh;
-  padding: 15px;       /* Adds space between content and the border */
-  box-sizing: border-box; /* Includes padding and border in element's dimensions */
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments for desktop screens */
+@media (min-width: 769px) {
+  .terminal-window {
+    max-width: 90%;
+    min-width: 800px;
+    width: 100%; 
+    height: 80vh;
+  }
+
+  .send-button {
+    display: none;
+  }
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .terminal-window {
-    width: 95%;          /* Adjusts width for tablets and small screens */
-    min-width: unset;    /* Allows flexibility */
-    height: 70vh;
+    height: 60vh;
+  }
+  
+  .terminal-header {
+    font-size: 12px;
+  }
+
+  .send-button {
+    display: inline;
+  }
+
+  /* Send button styles, visible only on mobile */
+  .send-button {
+    /* display: none; */
+    border-style: none;
+    padding: 8px 12px;
+    margin-left: 5px;
+    border-bottom: 2px solid #00ff00;
+    background-color: black;
+    color: #00ff00;
+    outline: none;
+    box-shadow: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
   }
 }
 
@@ -78,7 +116,7 @@ body {
 /* Main content area inside the terminal */
 .terminal {
   padding: 10px;
-  height: calc(100% - 60px); /* Adjusts height within the terminal window */
+  height: calc(100% - 60px);
   overflow-y: auto;
   color: green;
   white-space: pre-wrap;
@@ -140,8 +178,25 @@ body {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
+/* Container for input and send button */
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
 /* Hidden input for user typing in the terminal */
 .hidden-input {
-  opacity: 0;
-  position: absolute;
+  opacity: 1;
+  color: green;
+  background-color: black;
+  border: none;
+  outline: none;
+  font-family: monospace;
+  font-size: 1em;
+  flex: 1;
+}
+
+.send-button:hover {
+  background-color: #003300;
 }
