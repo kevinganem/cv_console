@@ -1,5 +1,4 @@
-/* terminal.css */
-
+/* Container to center the terminal */
 .terminal-container {
   display: flex;
   flex-direction: column;
@@ -9,6 +8,7 @@
   background-color: black;
 }
 
+/* Styles for the entire page */
 body {
   margin: 0;
   height: 100vh;
@@ -18,32 +18,39 @@ body {
   background-color: #130a16;
 }
 
+/* Main terminal window */
 .terminal-window {
   border: 3px solid #00ff00;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
   background-color: black;
-  max-width: 90%;      /* Restrict width on small screens */
-  min-width: 800px;    /* Maintain readability */
-  width: 100%;          /* Default width for mid-size screens */
+  max-width: 90%;      /* Limits the width on smaller screens */
+  min-width: 800px;    /* Ensures readability on larger screens */
+  width: 100%;         /* Full width for mid-size screens */
   height: 80vh;
+  padding: 15px;       /* Adds space between content and the border */
+  box-sizing: border-box; /* Includes padding and border in element's dimensions */
 }
 
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .terminal-window {
-    width: 95%;          /* Adjust width for tablets and small screens */
-    min-width: unset;
+    width: 95%;          /* Adjusts width for tablets and small screens */
+    min-width: unset;    /* Allows flexibility */
     height: 70vh;
   }
 }
 
+/* Terminal header styles */
 .terminal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  border-bottom: 1px solid green;
 }
 
+/* Buttons in the terminal header */
 .buttons {
   display: flex;
 }
@@ -68,17 +75,19 @@ body {
   background-color: #00ca56; /* Green */
 }
 
+/* Main content area inside the terminal */
 .terminal {
-  border: 1px solid green;
   padding: 10px;
-  height: calc(100% - 60px); /* Adjust height within terminal window */
+  height: calc(100% - 60px); /* Adjusts height within the terminal window */
   overflow-y: auto;
   color: green;
   white-space: pre-wrap;
   scrollbar-width: thin;
   scrollbar-color: green black;
+  box-sizing: border-box;
 }
 
+/* Custom scrollbar styles */
 .terminal::-webkit-scrollbar {
   width: 8px;
 }
@@ -92,6 +101,7 @@ body {
   background: black;
 }
 
+/* Blinking cursor effect */
 .blink-cursor {
   display: inline-block;
   width: 10px;
@@ -101,11 +111,13 @@ body {
   animation: blink 1s step-end infinite;
 }
 
+/* Blink animation */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
+/* Glitch effect for error messages */
 @keyframes glitch {
   0% { transform: translate(0); }
   20% { transform: translate(-1px, 1px); }
@@ -120,6 +132,7 @@ body {
   color: red;
 }
 
+/* Hover effect on terminal lines */
 .terminal p:hover {
   color: lime;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
@@ -127,6 +140,7 @@ body {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
+/* Hidden input for user typing in the terminal */
 .hidden-input {
   opacity: 0;
   position: absolute;

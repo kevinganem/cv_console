@@ -1,8 +1,8 @@
 // Terminal.js
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { playSound, scrollToBottom, handleCommand, TextFormatter } from '../helpers/terminalHelpers';
-import { TERMINAL_INTRO, allCommands } from '../helpers/terminalCommands';
+import { scrollToBottom, handleCommand, TextFormatter } from '../helpers/terminalHelpers';
+import { TERMINAL_INTRO } from '../helpers/terminalCommands';
 import HackingSimulator from './HackingSimulator';
 import '../styles/terminal.css';
 
@@ -15,7 +15,8 @@ const Terminal = () => {
     const audioRef = useRef({
         default: new Audio(process.env.PUBLIC_URL + '/assets/audio/type-sound.mp3'),
         unknown: new Audio(process.env.PUBLIC_URL + '/assets/audio/wrong.mp3'),
-        clear: new Audio(process.env.PUBLIC_URL + '/assets/audio/clear.mp3')
+        clear: new Audio(process.env.PUBLIC_URL + '/assets/audio/clear.mp3'),
+        download: new Audio(process.env.PUBLIC_URL + '/assets/audio/download.mp3')
     });
 
     const handleChange = (e) => {
@@ -37,15 +38,8 @@ const Terminal = () => {
             if (command === "secret") {
                 setIsHacking(true);
                 setOutput([]);
-            } else if (command === "clear") {
-                handleCommand(command, setOutput);
-                playSound(audioRef.current.clear);
-            } else if (allCommands[command]) {
-                handleCommand(command, setOutput);
-                playSound(audioRef.current.default);
             } else {
-                handleCommand(command, setOutput);
-                playSound(audioRef.current.unknown);
+                handleCommand(command, setOutput, audioRef.current);
             }
             inputRef.current.focus();
         }

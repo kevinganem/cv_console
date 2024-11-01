@@ -88,6 +88,7 @@ const commands = {
   menu: `<b>📜 _Command Menu_</b>
     ➤ Type <i>experience</i>: See my secret operations
     ➤ Type <i>skills</i>: View my skills
+    ➤ Type <i>upload</i>: Download my CV
     ➤ Type <i>help</i>: Quick help
     ➤ Type <i>clear</i>: Clear the terminal\n`,
 
