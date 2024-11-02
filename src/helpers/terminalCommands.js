@@ -20,7 +20,7 @@ const experienceCommands = {
       improving both performance and user interface.
     ➤ Assisted in migrating the platform from Meteor to Next.js,
       ensuring a smoother, more scalable architecture for future growth.\n
-    ${PROMPT_MESSAGE}`,
+  ${PROMPT_MESSAGE}`,
 
   personal: `<b>🛠️ _Personal_</b>
     ➤ Co-Founder & Designer at <b>Shiawase</b> <i>(2024 - present)</i>
@@ -44,7 +44,7 @@ const experienceCommands = {
       functionality customization, and client feedback integration.
     ➤ Provided ongoing support and updates to ensure long-term client
       satisfaction and website performance.\n
-    ${PROMPT_MESSAGE}`,
+  ${PROMPT_MESSAGE}`,
 };
 
 const skillsCommands = {
@@ -54,7 +54,7 @@ const skillsCommands = {
     ➤ Next.js
     ➤ Flutter (beginner)
     ➤ E-commerce platforms (Wix, Shopify, Wordpress)\n
-    ${PROMPT_MESSAGE}`,
+  ${PROMPT_MESSAGE}`,
 
   backend: `<b>⚙️ _Back-end Skills_</b>
     ➤ Node.js
@@ -62,7 +62,7 @@ const skillsCommands = {
     ➤ GraphQL
     ➤ Python (beginner)
     ➤ MongoDB\n
-    ${PROMPT_MESSAGE}`,
+  ${PROMPT_MESSAGE}`,
 
   other: `<b>🔧 _Other Skills_</b>
     ➤ Git
@@ -71,7 +71,7 @@ const skillsCommands = {
     ➤ IA (ChatGPT, MidJourney)
     ➤ Photoshop
     ➤ Blender\n
-    ${PROMPT_MESSAGE}`,
+  ${PROMPT_MESSAGE}`,
 };
 
 const commands = {
