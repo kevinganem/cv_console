@@ -49,11 +49,11 @@ body {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .terminal-window {
-    height: 60vh;
+    height: 80vh;
   }
   
   .terminal-header {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .send-button {

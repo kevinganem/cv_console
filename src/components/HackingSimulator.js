@@ -9,7 +9,6 @@ const HackingSimulator = ({ onComplete }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [loadingProgress, setLoadingProgress] = useState(0);
     const terminalRef = useRef(null);
-    const audioRef = useRef(new Audio(process.env.PUBLIC_URL + '/assets/audio/alarm.mp3'));
 
     useEffect(() => {
         const hackingMessages = [
@@ -43,7 +42,7 @@ const HackingSimulator = ({ onComplete }) => {
 
     useEffect(() => {
         if (isAccessDenied) {
-            playSound(audioRef.current);
+            playSound("alarm");
             const accessDeniedMessage = (
                 <div className="access-denied">
                     <span className="skull">💀</span>

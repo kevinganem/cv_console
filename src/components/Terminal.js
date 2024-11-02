@@ -28,6 +28,12 @@ const Terminal = () => {
         inputRef.current.focus();
     };
 
+    const handleHackingComplete = () => {
+        setIsHacking(false);
+        scrollToBottom(terminalRef);
+        setOutput(TERMINAL_INTRO);
+    };
+
     const handleInput = (e) => {
         if (e.key === 'Enter') handleSend();
     };
@@ -53,7 +59,7 @@ const Terminal = () => {
             </div>
             <div className="terminal" ref={terminalRef} onClick={() => inputRef.current.focus()}>
                 {isHacking ? (
-                    <HackingSimulator onComplete={() => setIsHacking(false)} />
+                    <HackingSimulator onComplete={handleHackingComplete} />
                 ) : (
                     output.map((line, index) => (
                         <motion.p
