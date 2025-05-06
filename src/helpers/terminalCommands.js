@@ -11,47 +11,44 @@ const experienceCommands = {
   professional: `<b>🚀 _Professional_</b>
     ➤ FullStack Developer at <b>OfficeRiders</b> <i>(2022 - 2024)</i>
     ➤ <u>About:</u>
-    ➤ Professional Space Rental Platform
+    ➤ Online platform for professional space rentals (seminars, meetings, events). 
     ➤ <u>Key achievements:</u>
-    ➤ Developed a complex search algorithm to optimize the matching
-      of professional spaces for seminars, meetings, and events,
-      enhancing user experience and booking efficiency.
-    ➤ Contributed to the development of the site’s second version,
-      improving both performance and user interface.
-    ➤ Assisted in migrating the platform from Meteor to Next.js,
-      ensuring a smoother, more scalable architecture for future growth.\n
+    ➤ Designed and implemented a **custom search algorithm** to match users with optimal spaces based on location, capacity, and equipment, improving booking efficiency by 40%.  
+    ➤ Played a key role in building and deploying **v2 of the platform**, with a focus on **performance optimization, UI/UX consistency**, and SEO best practices.  
+    ➤ Participated in a full **migration from Meteor to Next.js**, refactoring the codebase into a modular architecture with **API routes, SSR, and static optimization**.  
+    ➤ Collaborated with the product team using Agile methodology (Scrum), and contributed to sprint planning, code reviews, and feature testing.  
+    ➤ Integrated third-party services (Stripe, Sendinblue, Algolia) to enhance the platform’s scalability and service offering.\n
   ${PROMPT_MESSAGE}`,
 
   personal: `<b>🛠️ _Personal_</b>
-    ➤ Co-Founder & Designer at <b>Shiawase</b> <i>(2024 - present)</i>
+    ➤ Co-Founder & UX/UI Developer at <b>Shiawase</b> <i>(2024 - Present)</i>
     ➤ <u>About:</u>
     ➤ Japanese Pop Culture Mystery Box E-commerce
     ➤ <u>Key achievements:</u>
-    ➤ Created and managed the Shiawase website using Wix,
-      catering to fans of Japanese pop culture and anime.
-    ➤ Designed all mystery box themes, each featuring
-      unique products and curated aesthetics.
-    ➤ Built partnerships with influencers to drive brand
-      awareness and engagement in the anime and Japanese
-      pop culture communities.\n
-    ➤ Founder & Web Designer at <b>Deezin Studio</b> <i>(2024 - present)</i>
+    ➤ Developed and maintained the **Shiawase storefront using Wix & Velo (JavaScript-based CMS)**, optimizing UX for mobile and desktop users.  
+    ➤ Designed multiple mystery box lines (Panta, Kuma, Fugu, Kame) with unique visual identity and product selection strategy.  
+    ➤ Implemented **custom checkout logic in Velo** to handle promotional codes, user tracking, and A/B testing.  
+    ➤ Built automations for **email marketing, stock updates**, and user onboarding via Wix Automations & custom Velo scripts.  
+    ➤ Managed influencer outreach pipeline, increasing monthly organic traffic by 35% through strategic partnerships.  
+    ➤ Created product listing modules using dynamic pages and Velo datasets for scalability and fast iteration.\n
+    ➤ Founder & Front-End Developer at <b>Deezin Studio</b> <i>(2024 - Present)</i>
     ➤ <u>About:</u>
-    ➤ Website Development Agency
+    ➤ Boutique agency offering website design & development for creative entrepreneurs and small businesses. 
     ➤ <u>Key achievements:</u>
-    ➤ Created and launched websites on platforms such as Wix,
-      WordPress, and Shopify, tailored to client needs and brand identity.
-    ➤ Managed end-to-end project development, including design,
-      functionality customization, and client feedback integration.
-    ➤ Provided ongoing support and updates to ensure long-term client
-      satisfaction and website performance.\n
+    ➤ Designed and deployed client websites using **Wix, WordPress, and Shopify**, ensuring performance, accessibility, and responsive UI.  
+    ➤ Developed **custom Velo/Liquid/JS scripts** to handle dynamic content, contact forms, and booking systems tailored to each client.  
+    ➤ Built reusable **design systems and UI kits** to streamline development across multiple projects.  
+    ➤ Led client discovery workshops and translated business needs into technical specs and design wireframes.  
+    ➤ Managed full project lifecycles from concept to launch, integrating feedback loops and performance tracking.\n
   ${PROMPT_MESSAGE}`,
 };
 
 const skillsCommands = {
   frontend: `<b>🖥️ _Front-end Skills_</b>
     ➤ HTML / CSS
-    ➤ React/React Native
+    ➤ React / React Native
     ➤ Next.js
+    ➤ Liquid/Velo
     ➤ Flutter (beginner)
     ➤ E-commerce platforms (Wix, Shopify, Wordpress)\n
   ${PROMPT_MESSAGE}`,
