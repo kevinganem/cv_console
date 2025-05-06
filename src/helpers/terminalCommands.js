@@ -12,11 +12,11 @@ const experienceCommands = {
   ➤ <b>FullStack Developer at OfficeRiders</b> <i>(2022 - 2024)</i><br>
   <u>About:</u> Online platform for professional space rentals (seminars, meetings, events).<br>
   <u>Key achievements:</u><br>
-  &emsp;➤ Designed and implemented a <b>custom search algorithm</b> to match users with optimal spaces based on location, capacity, and equipment — improving booking efficiency by 40%.<br>
-  &emsp;➤ Led development on <b>v2 of the platform</b>, with a focus on performance optimization, UI/UX consistency, and SEO best practices.<br>
-  &emsp;➤ Participated in a full migration from <b>Meteor to Next.js</b>, refactoring the codebase into a modular architecture with API routes, SSR, and static optimization.<br>
-  &emsp;➤ Worked in Agile (Scrum), contributing to sprint planning, code reviews, and feature testing.<br>
-  &emsp;➤ Integrated third-party services including <b>Stripe, Sendinblue, and Algolia</b> to enhance platform capabilities and scalability.<br><br>
+  &emsp;➤ Designed and implemented a <b>custom search algorithm</b> to match users with optimal spaces based on location, capacity, and equipment — improving booking efficiency by 40%.
+  &emsp;➤ Led development on <b>v2 of the platform</b>, with a focus on performance optimization, UI/UX consistency, and SEO best practices.
+  &emsp;➤ Participated in a full migration from <b>Meteor to Next.js</b>, refactoring the codebase into a modular architecture with API routes, SSR, and static optimization.
+  &emsp;➤ Worked in Agile (Scrum), contributing to sprint planning, code reviews, and feature testing.
+  &emsp;➤ Integrated third-party services including <b>Stripe, Sendinblue, and Algolia</b> to enhance platform capabilities and scalability.<br>
 
 ${PROMPT_MESSAGE}`,
 
@@ -24,21 +24,21 @@ ${PROMPT_MESSAGE}`,
   ➤ <b>Co-Founder & UX/UI Developer at Shiawase</b> <i>(2024 - Present)</i><br>
   <u>About:</u> Japanese Pop Culture Mystery Box E-commerce<br>
   <u>Key achievements:</u><br>
-  &emsp;➤ Developed and maintained the <b>Shiawase storefront using Wix & Velo</b> (JavaScript-based CMS), optimizing UX for mobile and desktop.<br>
-  &emsp;➤ Designed multiple mystery box lines (Panta, Kuma, Fugu, Kame) with unique visual identity and product curation.<br>
-  &emsp;➤ Implemented <b>custom checkout logic in Velo</b> to handle promo codes, user tracking, and A/B testing.<br>
-  &emsp;➤ Built automations for <b>email marketing, stock updates</b>, and user onboarding via Wix Automations & Velo scripts.<br>
-  &emsp;➤ Managed influencer partnerships, increasing organic traffic by 35%.<br>
-  &emsp;➤ Created product listing modules using <b>Velo datasets and dynamic pages</b> for scalability.<br><br>
+  &emsp;➤ Developed and maintained the <b>Shiawase storefront using Wix & Velo</b> (JavaScript-based CMS), optimizing UX for mobile and desktop.
+  &emsp;➤ Designed multiple mystery box lines (Panta, Kuma, Fugu, Kame) with unique visual identity and product curation.
+  &emsp;➤ Implemented <b>custom checkout logic in Velo</b> to handle promo codes, user tracking, and A/B testing.
+  &emsp;➤ Built automations for <b>email marketing, stock updates</b>, and user onboarding via Wix Automations & Velo scripts.
+  &emsp;➤ Managed influencer partnerships, increasing organic traffic by 35%.
+  &emsp;➤ Created product listing modules using <b>Velo datasets and dynamic pages</b> for scalability.<br>
   
   ➤ <b>Founder & Front-End Developer at Deezin Studio</b> <i>(2024 - Present)</i><br>
   <u>About:</u> Boutique agency offering web design & development for creatives and small businesses.<br>
   <u>Key achievements:</u><br>
-  &emsp;➤ Designed and deployed websites using <b>Wix, WordPress, and Shopify</b> with performance-first mindset.<br>
-  &emsp;➤ Developed <b>custom Velo/Liquid/JS scripts</b> to manage forms, dynamic content, and booking systems.<br>
-  &emsp;➤ Built reusable <b>UI kits and component libraries</b> for scalable design.<br>
-  &emsp;➤ Led client discovery workshops and translated needs into <b>wireframes and dev specs</b>.<br>
-  &emsp;➤ Managed full project lifecycles with integrated feedback and analytics.<br><br>
+  &emsp;➤ Designed and deployed websites using <b>Wix, WordPress, and Shopify</b> with performance-first mindset.
+  &emsp;➤ Developed <b>custom Velo/Liquid/JS scripts</b> to manage forms, dynamic content, and booking systems.
+  &emsp;➤ Built reusable <b>UI kits and component libraries</b> for scalable design.
+  &emsp;➤ Led client discovery workshops and translated needs into <b>wireframes and dev specs</b>.
+  &emsp;➤ Managed full project lifecycles with integrated feedback and analytics.<br>
   
   ${PROMPT_MESSAGE}`,
 };
