@@ -20,26 +20,27 @@ const experienceCommands = {
     ➤ Integrated third-party services (Stripe, Sendinblue, Algolia) to enhance the platform’s scalability and service offering.\n
   ${PROMPT_MESSAGE}`,
 
-  personal: `<b>🛠️ _Personal_</b>
-    ➤ Co-Founder & UX/UI Developer at <b>Shiawase</b> <i>(2024 - Present)</i>
-    ➤ <u>About:</u>
-    ➤ Japanese Pop Culture Mystery Box E-commerce
-    ➤ <u>Key achievements:</u>
-    ➤ Developed and maintained the **Shiawase storefront using Wix & Velo (JavaScript-based CMS)**, optimizing UX for mobile and desktop users.  
-    ➤ Designed multiple mystery box lines (Panta, Kuma, Fugu, Kame) with unique visual identity and product selection strategy.  
-    ➤ Implemented **custom checkout logic in Velo** to handle promotional codes, user tracking, and A/B testing.  
-    ➤ Built automations for **email marketing, stock updates**, and user onboarding via Wix Automations & custom Velo scripts.  
-    ➤ Managed influencer outreach pipeline, increasing monthly organic traffic by 35% through strategic partnerships.  
-    ➤ Created product listing modules using dynamic pages and Velo datasets for scalability and fast iteration.\n
-    ➤ Founder & Front-End Developer at <b>Deezin Studio</b> <i>(2024 - Present)</i>
-    ➤ <u>About:</u>
-    ➤ Boutique agency offering website design & development for creative entrepreneurs and small businesses. 
-    ➤ <u>Key achievements:</u>
-    ➤ Designed and deployed client websites using **Wix, WordPress, and Shopify**, ensuring performance, accessibility, and responsive UI.  
-    ➤ Developed **custom Velo/Liquid/JS scripts** to handle dynamic content, contact forms, and booking systems tailored to each client.  
-    ➤ Built reusable **design systems and UI kits** to streamline development across multiple projects.  
-    ➤ Led client discovery workshops and translated business needs into technical specs and design wireframes.  
-    ➤ Managed full project lifecycles from concept to launch, integrating feedback loops and performance tracking.\n
+  personal: `<b>🛠️ _Personal_</b><br><br>
+
+  ➤ <b>Co-Founder & UX/UI Developer at Shiawase</b> <i>(2024 - Present)</i><br>
+  <u>About:</u> Japanese Pop Culture Mystery Box E-commerce<br>
+  <u>Key achievements:</u><br>
+  &emsp;• Developed and maintained the <b>Shiawase storefront using Wix & Velo</b> (JavaScript-based CMS), optimizing UX for mobile and desktop.<br>
+  &emsp;• Designed multiple mystery box lines (Panta, Kuma, Fugu, Kame) with unique visual identity and product curation.<br>
+  &emsp;• Implemented <b>custom checkout logic in Velo</b> to handle promo codes, user tracking, and A/B testing.<br>
+  &emsp;• Built automations for <b>email marketing, stock updates</b>, and user onboarding via Wix Automations & Velo scripts.<br>
+  &emsp;• Managed influencer partnerships, increasing organic traffic by 35%.<br>
+  &emsp;• Created product listing modules using <b>Velo datasets and dynamic pages</b> for scalability.<br><br>
+  
+  ➤ <b>Founder & Front-End Developer at Deezin Studio</b> <i>(2024 - Present)</i><br>
+  <u>About:</u> Boutique agency offering web design & development for creatives and small businesses.<br>
+  <u>Key achievements:</u><br>
+  &emsp;• Designed and deployed websites using <b>Wix, WordPress, and Shopify</b> with performance-first mindset.<br>
+  &emsp;• Developed <b>custom Velo/Liquid/JS scripts</b> to manage forms, dynamic content, and booking systems.<br>
+  &emsp;• Built reusable <b>UI kits and component libraries</b> for scalable design.<br>
+  &emsp;• Led client discovery workshops and translated needs into <b>wireframes and dev specs</b>.<br>
+  &emsp;• Managed full project lifecycles with integrated feedback and analytics.<br><br>
+  
   ${PROMPT_MESSAGE}`,
 };
 
