@@ -8,20 +8,19 @@ export const TERMINAL_INTRO = [
 ];
 
 const experienceCommands = {
-  professional: `<b>🚀 _Professional_</b>
-    ➤ FullStack Developer at <b>OfficeRiders</b> <i>(2022 - 2024)</i>
-    ➤ <u>About:</u>
-    ➤ Online platform for professional space rentals (seminars, meetings, events). 
-    ➤ <u>Key achievements:</u>
-    ➤ Designed and implemented a **custom search algorithm** to match users with optimal spaces based on location, capacity, and equipment, improving booking efficiency by 40%.  
-    ➤ Played a key role in building and deploying **v2 of the platform**, with a focus on **performance optimization, UI/UX consistency**, and SEO best practices.  
-    ➤ Participated in a full **migration from Meteor to Next.js**, refactoring the codebase into a modular architecture with **API routes, SSR, and static optimization**.  
-    ➤ Collaborated with the product team using Agile methodology (Scrum), and contributed to sprint planning, code reviews, and feature testing.  
-    ➤ Integrated third-party services (Stripe, Sendinblue, Algolia) to enhance the platform’s scalability and service offering.\n
-  ${PROMPT_MESSAGE}`,
+  professional: `<b>🚀 _Professional_</b><br><br>
+  ➤ <b>FullStack Developer at OfficeRiders</b> <i>(2022 - 2024)</i><br>
+  <u>About:</u> Online platform for professional space rentals (seminars, meetings, events).<br>
+  <u>Key achievements:</u><br>
+  &emsp;• Designed and implemented a <b>custom search algorithm</b> to match users with optimal spaces based on location, capacity, and equipment — improving booking efficiency by 40%.<br>
+  &emsp;• Led development on <b>v2 of the platform</b>, with a focus on performance optimization, UI/UX consistency, and SEO best practices.<br>
+  &emsp;• Participated in a full migration from <b>Meteor to Next.js</b>, refactoring the codebase into a modular architecture with API routes, SSR, and static optimization.<br>
+  &emsp;• Worked in Agile (Scrum), contributing to sprint planning, code reviews, and feature testing.<br>
+  &emsp;• Integrated third-party services including <b>Stripe, Sendinblue, and Algolia</b> to enhance platform capabilities and scalability.<br><br>
+
+${PROMPT_MESSAGE}`,
 
   personal: `<b>🛠️ _Personal_</b><br><br>
-
   ➤ <b>Co-Founder & UX/UI Developer at Shiawase</b> <i>(2024 - Present)</i><br>
   <u>About:</u> Japanese Pop Culture Mystery Box E-commerce<br>
   <u>Key achievements:</u><br>
