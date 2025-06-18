@@ -3,7 +3,7 @@ import '../styles/animatedWelcome.css';
 
 const SYSTEM_ONLINE = '🟢 SYSTEM ONLINE';
 const WELCOME_LINE = 'kevin_ganem • fullstack developer';
-const PROMPT = 'Type menu to explore my experience, skills, and projects. Or try help for navigation tips. (Psst... there\'s a secret mode)';
+const PROMPT = 'Type menu to explore my experience, skills, and projects. Or try help for navigation tips. (Psst... there\'s a secret command)';
 
 const AnimatedWelcome = () => {
   const [showWelcome, setShowWelcome] = useState(false);

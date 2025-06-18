@@ -5,23 +5,6 @@ export const TERMINAL_INTRO = ['WELCOME_ANIMATED'];
 
 const professionalExperiences = [
   {
-    title: "OfficeRiders",
-    period: "2022-2024",
-    role: "FullStack Developer",
-    about: "Online platform for professional space rentals (seminars, meetings, events).",
-    achievements: [
-      "Designed and implemented a custom search algorithm to match users with optimal spaces based on location, capacity, and equipment — improving booking efficiency by 40%",
-      "Led development on v2 of the platform, with a focus on performance optimization, UI/UX consistency, and SEO best practices",
-      "Participated in a full migration from Meteor to Next.js, refactoring the codebase into a modular architecture with API routes, SSR, and static optimization",
-      "Worked in Agile (Scrum), contributing to sprint planning, code reviews, and feature testing",
-      "Integrated third-party services including Stripe, Sendinblue, and Algolia to enhance platform capabilities and scalability"
-    ],
-    technologies: ["Next.js", "React", "Node.js", "MongoDB", "GraphQL", "Stripe", "Sendinblue", "Algolia"]
-  }
-];
-
-const personalExperiences = [
-  {
     title: "Shiawase",
     period: "2024-Present",
     role: "Co-Founder & UX/UI Developer",
@@ -37,8 +20,22 @@ const personalExperiences = [
     technologies: ["Wix", "Velo", "JavaScript", "E-commerce", "UI/UX Design"]
   },
   {
+    title: "OfficeRiders",
+    period: "2022-2024",
+    role: "FullStack Developer",
+    about: "Online platform for professional space rentals (seminars, meetings, events).",
+    achievements: [
+      "Designed and implemented a custom search algorithm to match users with optimal spaces based on location, capacity, and equipment — improving booking efficiency by 40%",
+      "Led development on v2 of the platform, with a focus on performance optimization, UI/UX consistency, and SEO best practices",
+      "Participated in a full migration from Meteor to Next.js, refactoring the codebase into a modular architecture with API routes, SSR, and static optimization",
+      "Worked in Agile (Scrum), contributing to sprint planning, code reviews, and feature testing",
+      "Integrated third-party services including Stripe, Sendinblue, and Algolia to enhance platform capabilities and scalability"
+    ],
+    technologies: ["Next.js", "React", "Node.js", "MongoDB", "GraphQL", "Stripe", "Sendinblue", "Algolia"]
+  },
+  {
     title: "Deezin Studio",
-    period: "2024-Present",
+    period: "2022-2023",
     role: "Founder & Front-End Developer",
     about: "Boutique agency offering web design & development for creatives and small businesses",
     achievements: [
@@ -49,6 +46,37 @@ const personalExperiences = [
       "Managed full project lifecycles with integrated feedback and analytics"
     ],
     technologies: ["Wix", "WordPress", "Shopify", "JavaScript", "UI/UX Design", "Project Management"]
+  }
+];
+
+const personalExperiences = [
+  {
+    "title": "Fitness App",
+    "period": "2025-Present",
+    "role": "UX/UI Developer",
+    "about": "Fitness & Nutrition Coaching App with Modern Gamified Experience",
+    "achievements": [
+      "Designed and developed a modern, gamified mobile app using React Native, focusing on fitness and nutrition coaching",
+      "Created adaptive nutrition templates for training and rest days with dynamic meal suggestions and macros tracking",
+      "Integrated Firebase for real-time user data management, enabling smooth progress tracking and notifications",
+      "Developed a highly interactive hydration tracking system with dynamic, user-friendly UI",
+      "Implemented a bottom sheet system for easy access to exercise and meal libraries, enhancing user experience",
+      "Optimized app performance and responsiveness, ensuring an enjoyable experience across various devices"
+    ],
+    "technologies": ["React Native", "Firebase", "JavaScript", "UI/UX Design", "Gamification"]
+  },
+  {
+    "title": "Social Link App",
+    "period": "2021",
+    "role": "Developer for school project",
+    "about": "QR Code-based Social Link Sharing App",
+    "achievements": [
+      "Designed and developed a cross-platform mobile app for generating custom QR codes linked to social profiles",
+      "Implemented real-time data updates for user profiles and QR codes",
+      "Optimized user interface with intuitive design for seamless QR code creation and scanning",
+      "Introduced customizable themes and colors for personalizing QR codes, enhancing brand identity"
+    ],
+    "technologies": ["React Native", "MongoDB", "UI/UX Design"]
   }
 ];
 
@@ -72,7 +100,6 @@ const skillsCategories = [
       "Node.js",
       "Javascript",
       "GraphQL",
-      "Python",
       "MongoDB"
     ]
   },
