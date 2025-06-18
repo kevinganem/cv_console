@@ -1,0 +1,149 @@
+.boot-sequence-outer {
+  width: 100vw;
+  height: 100vh;
+  min-height: 600px;
+  min-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #130a16 0%, #1a0f1f 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.boot-sequence-inner {
+  width: 90vw;
+  max-width: 900px;
+  height: 600px;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 0 32px 4px #00ff00aa, 0 0 0 2px #00ff0044;
+  border: 1.5px solid rgba(0,255,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 32px 24px 32px;
+  position: relative;
+  animation: bootFadeIn 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes bootFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.ascii-art {
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1em;
+  margin: 0 0 0.5em 0;
+  text-align: center;
+  text-shadow: 0 0 8px #00ff00;
+  letter-spacing: 1px;
+  animation: asciiGlow 2s infinite alternate;
+}
+
+@keyframes asciiGlow {
+  from { text-shadow: 0 0 8px #00ff00, 0 0 2px #00ff00; }
+  to { text-shadow: 0 0 16px #00ff00, 0 0 8px #00ff00; }
+}
+
+.subtitle {
+  color: #00ff00;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px #00ff00;
+  animation: fadeInSubtitle 1.2s 0.5s both;
+}
+
+@keyframes fadeInSubtitle {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.boot-lines {
+  margin: 18px 0 20px 0;
+  min-height: 120px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: 'Fira Code', monospace;
+}
+
+.boot-line {
+  color: #00ff00;
+  font-size: 1em;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: bootLineFadeIn 0.7s forwards;
+}
+
+.boot-line:nth-child(1) { animation-delay: 0.1s; }
+.boot-line:nth-child(2) { animation-delay: 0.8s; }
+.boot-line:nth-child(3) { animation-delay: 1.5s; }
+.boot-line:nth-child(4) { animation-delay: 2.2s; }
+
+@keyframes bootLineFadeIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.boot-loading-bar {
+  width: 260px;
+  height: 8px;
+  background: #111;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 8px #00ff00;
+  margin: 10px auto 0 auto;
+}
+
+.boot-loading-progress {
+  height: 8px;
+  background: linear-gradient(90deg,#00ff00,#00ffaa);
+  transition: width 0.1s;
+}
+
+.boot-cursor {
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.2em;
+  margin-top: 18px;
+  text-align: left;
+}
+
+.blinking-cursor {
+  animation: blinkCursor 1s steps(2, start) infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .boot-sequence-inner {
+    width: 98vw;
+    height: 90vh;
+    min-width: 0;
+    min-height: 0;
+    padding: 10px 2vw 10px 2vw;
+  }
+  .ascii-art {
+    font-size: 0.9em;
+  }
+  .boot-loading-bar {
+    width: 90vw;
+    min-width: 120px;
+    max-width: 98vw;
+  }
+} 

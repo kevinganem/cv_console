@@ -7,200 +7,320 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: black;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Styles for the entire page */
-body {
+html, body {
+  width: 100%;
+  min-height: 100vh;
   margin: 0;
-  height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #130a16;
+  background: linear-gradient(135deg, #130a16 0%, #1a0f1f 100%);
   font-family: 'Fira Code', monospace;
 }
 
 /* Main terminal window */
 .terminal-window {
-  border: 3px solid #00ff00;
+  width: 90vw;
+  max-width: 900px;
+  height: 600px;
+  background-color: #000;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-  background-color: black;
-  padding: 15px;
-  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 255, 0, 0.3);
 }
 
-/* Responsive adjustments for desktop screens */
-@media (min-width: 769px) {
-  .terminal-window {
-    max-width: 90%;
-    min-width: 800px;
-    width: 100%; 
-    height: 80vh;
-  }
-
-  .send-button {
-    display: none;
-  }
+.terminal-window::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(0, 255, 0, 0.03) 0%,
+    rgba(0, 255, 0, 0.05) 50%,
+    rgba(0, 255, 0, 0.03) 100%
+  );
+  pointer-events: none;
+  animation: scan 2s linear infinite;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .terminal-window {
-    height: 80vh;
-  }
-
-  .terminal p {
-    font-size: 10px;
-  }
-  
-  .terminal-header {
-    font-size: 8px;
-  }
-
-  .send-button {
-    display: inline;
-  }
-
-  /* Send button styles, visible only on mobile */
-  .send-button {
-    /* display: none; */
-    border-style: none;
-    padding: 8px 12px;
-    margin-left: 5px;
-    border-bottom: 2px solid #00ff00;
-    background-color: black;
-    color: #00ff00;
-    outline: none;
-    box-shadow: none;
-    /* border-radius: 5px; */
-    cursor: pointer;
-    font-family: monospace;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-  }
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
 /* Terminal header styles */
 .terminal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: rgba(0, 255, 0, 0.1);
   padding: 10px;
-  border-bottom: 1px solid green;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+.terminal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 0, 0.3),
+    transparent
+  );
 }
 
 /* Buttons in the terminal header */
 .buttons {
   display: flex;
+  gap: 8px;
 }
 
 .button {
-  width: 15px;
-  height: 15px;
-  margin: 0 5px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.close {
-  background-color: #ff605c; /* Red */
+.button.close {
+  background: #ff5f56;
 }
 
-.minimize {
-  background-color: #ffbd44; /* Yellow */
+.button.minimize {
+  background: #ffbd2e;
 }
 
-.maximize {
-  background-color: #00ca56; /* Green */
+.button.maximize {
+  background: #27c93f;
 }
 
 /* Main content area inside the terminal */
 .terminal {
-  padding: 10px;
-  height: calc(100% - 60px);
+  flex: 1;
+  padding: 30px;
   overflow-y: auto;
-  color: green;
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+  position: relative;
+  font-size: 1.1em;
+}
+
+.terminal-line {
+  margin: 2px 0;
+  line-height: 1.4;
   white-space: pre-wrap;
-  scrollbar-width: thin;
-  scrollbar-color: green black;
-  box-sizing: border-box;
-}
-
-/* Custom scrollbar styles */
-.terminal::-webkit-scrollbar {
-  width: 8px;
-}
-
-.terminal::-webkit-scrollbar-thumb {
-  background-color: green;
-  border-radius: 4px;
-}
-
-.terminal::-webkit-scrollbar-track {
-  background: black;
-}
-
-/* Blinking cursor effect */
-.blink-cursor {
-  display: inline-block;
-  width: 10px;
-  height: 20px;
-  background-color: green;
-  border: 1px solid green;
-  animation: blink 1s step-end infinite;
-}
-
-/* Blink animation */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Glitch effect for error messages */
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(1px, -1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(1px, 1px); }
-  100% { transform: translate(0); }
-}
-
-.glitch {
-  animation: glitch 0.3s infinite;
-  color: red;
-}
-
-/* Hover effect on terminal lines */
-.terminal p:hover {
-  color: lime;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-  transform: scale(1.01);
-  transition: transform 0.2s ease, color 0.2s ease;
+  animation: fadeIn 0.3s ease-out;
 }
 
 /* Container for input and send button */
 .input-container {
   display: flex;
   align-items: center;
+  gap: 10px;
   margin-top: 10px;
 }
 
-/* Hidden input for user typing in the terminal */
-.hidden-input {
-  opacity: 1;
-  color: green;
-  background-color: black;
-  border: none;
-  outline: none;
-  font-family: monospace;
-  font-size: 1em;
+.prompt {
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+}
+
+.terminal input {
   flex: 1;
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+  font-size: 1em;
+  outline: none;
+}
+
+.terminal input::placeholder {
+  color: rgba(0, 255, 0, 0.5);
+}
+
+/* Send button styles */
+.send-button {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  color: #00ff00;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  margin-top: 10px;
 }
 
 .send-button:hover {
-  background-color: #003300;
+  background: rgba(0, 255, 0, 0.1);
+  border-color: rgba(0, 255, 0, 0.5);
+}
+
+/* Suggestions styling */
+.suggestions {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.suggestion {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.suggestion:hover {
+  background: rgba(0, 255, 0, 0.1);
+}
+
+/* Loading indicator */
+.loading-indicator {
+  color: #00ff00;
+  margin-left: 10px;
+  animation: loading 1s infinite;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+@keyframes loading {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+  .terminal-window {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .terminal {
+    padding: 20px;
+    font-size: 1em;
+  }
+
+  .send-button {
+    display: block;
+  }
+
+  .suggestions {
+    max-height: 150px;
+  }
+}
+
+/* Terminal text animations */
+.terminal p {
+  animation: fadeIn 0.3s ease-out;
+  margin: 2px 0;
+  line-height: 1.4;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Error message styling */
+.error {
+  color: #ff4444;
+  text-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+  animation: glitch 0.3s infinite;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .loading-indicator,
+  .terminal p,
+  .button {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Focus styles for better accessibility */
+.hidden-input:focus-visible,
+.send-button:focus-visible {
+  outline: 2px solid rgba(0, 255, 0, 0.5);
+  outline-offset: 2px;
+}
+
+.command-section {
+  margin: 12px 0;
+  padding: 8px 0;
+  border-left: 2px solid rgba(0, 255, 0, 0.2);
+  padding-left: 12px;
+}
+
+.command-header {
+  color: #00ff00;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+.command-options {
+  color: #baffba;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-left: 4px;
+}
+
+.command-option {
+  color: #00ff00;
+  font-weight: 500;
+  font-family: 'Fira Code', monospace;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: rgba(0, 255, 0, 0.1);
+  margin-right: 4px;
+}
+
+.command-hint {
+  color: #baffba;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 8px;
+  opacity: 0.8;
+  text-align: center;
+  animation: pulseHint 2s infinite alternate;
+}
+
+@keyframes pulseHint {
+  0% { opacity: 0.6; }
+  100% { opacity: 0.9; }
 }

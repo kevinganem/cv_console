@@ -1,99 +1,166 @@
 // terminalCommands.js
-const PROMPT_MESSAGE = "🌌 <b>Enter</b> <i>menu</i> or <i>help</i> to start or try a <i>secret</i> command if you're a real hacker...";
+import AnimatedWelcome from '../components/AnimatedWelcome';
 
-export const TERMINAL_INTRO = [
-  "<b>👾 Welcome</b> to the terminal of Kevin AKA <i>🥤 kevin_ganem 🥤</i>!",
-  "",
-  PROMPT_MESSAGE,
+export const TERMINAL_INTRO = ['WELCOME_ANIMATED'];
+
+const professionalExperiences = [
+  {
+    title: "OfficeRiders",
+    period: "2022-2024",
+    role: "FullStack Developer",
+    about: "Online platform for professional space rentals (seminars, meetings, events).",
+    achievements: [
+      "Designed and implemented a custom search algorithm to match users with optimal spaces based on location, capacity, and equipment — improving booking efficiency by 40%",
+      "Led development on v2 of the platform, with a focus on performance optimization, UI/UX consistency, and SEO best practices",
+      "Participated in a full migration from Meteor to Next.js, refactoring the codebase into a modular architecture with API routes, SSR, and static optimization",
+      "Worked in Agile (Scrum), contributing to sprint planning, code reviews, and feature testing",
+      "Integrated third-party services including Stripe, Sendinblue, and Algolia to enhance platform capabilities and scalability"
+    ],
+    technologies: ["Next.js", "React", "Node.js", "MongoDB", "GraphQL", "Stripe", "Sendinblue", "Algolia"]
+  }
 ];
 
-const experienceCommands = {
-  professional: `<b>🚀 _Professional_</b><br>
-  ➤ <b>FullStack Developer at OfficeRiders</b> <i>(2022 - 2024)</i><br>
-  <u>About:</u> Online platform for professional space rentals (seminars, meetings, events).
-  <u>Key achievements:</u>
-  &emsp;➤ Designed and implemented a <b>custom search algorithm</b> to match users with optimal spaces based on location, capacity, and equipment — improving booking efficiency by 40%.
-  &emsp;➤ Led development on <b>v2 of the platform</b>, with a focus on performance optimization, UI/UX consistency, and SEO best practices.
-  &emsp;➤ Participated in a full migration from <b>Meteor to Next.js</b>, refactoring the codebase into a modular architecture with API routes, SSR, and static optimization.
-  &emsp;➤ Worked in Agile (Scrum), contributing to sprint planning, code reviews, and feature testing.
-  &emsp;➤ Integrated third-party services including <b>Stripe, Sendinblue, and Algolia</b> to enhance platform capabilities and scalability.<br>
+const personalExperiences = [
+  {
+    title: "Shiawase",
+    period: "2024-Present",
+    role: "Co-Founder & UX/UI Developer",
+    about: "Japanese Pop Culture Mystery Box E-commerce",
+    achievements: [
+      "Developed and maintained the Shiawase storefront using Wix & Velo (JavaScript-based CMS), optimizing UX for mobile and desktop",
+      "Designed multiple mystery box lines (Panta, Kuma, Fugu, Kame) with unique visual identity and product curation",
+      "Implemented custom checkout logic in Velo to handle promo codes, user tracking, and A/B testing",
+      "Built automations for email marketing, stock updates, and user onboarding via Wix Automations & Velo scripts",
+      "Managed influencer partnerships, increasing organic traffic by 35%",
+      "Created product listing modules using Velo datasets and dynamic pages for scalability"
+    ],
+    technologies: ["Wix", "Velo", "JavaScript", "E-commerce", "UI/UX Design"]
+  },
+  {
+    title: "Deezin Studio",
+    period: "2024-Present",
+    role: "Founder & Front-End Developer",
+    about: "Boutique agency offering web design & development for creatives and small businesses",
+    achievements: [
+      "Designed and deployed websites using Wix, WordPress, and Shopify with performance-first mindset",
+      "Developed custom Velo/Liquid/JS scripts to manage forms, dynamic content, and booking systems",
+      "Built reusable UI kits and component libraries for scalable design",
+      "Led client discovery workshops and translated needs into wireframes and dev specs",
+      "Managed full project lifecycles with integrated feedback and analytics"
+    ],
+    technologies: ["Wix", "WordPress", "Shopify", "JavaScript", "UI/UX Design", "Project Management"]
+  }
+];
 
-${PROMPT_MESSAGE}`,
-
-  personal: `<b>🛠️ _Personal_</b><br>
-  ➤ <b>Co-Founder & UX/UI Developer at Shiawase</b> <i>(2024 - Present)</i><br>
-  <u>About:</u> Japanese Pop Culture Mystery Box E-commerce
-  <u>Key achievements:</u>
-  &emsp;➤ Developed and maintained the <b>Shiawase storefront using Wix & Velo</b> (JavaScript-based CMS), optimizing UX for mobile and desktop.
-  &emsp;➤ Designed multiple mystery box lines (Panta, Kuma, Fugu, Kame) with unique visual identity and product curation.
-  &emsp;➤ Implemented <b>custom checkout logic in Velo</b> to handle promo codes, user tracking, and A/B testing.
-  &emsp;➤ Built automations for <b>email marketing, stock updates</b>, and user onboarding via Wix Automations & Velo scripts.
-  &emsp;➤ Managed influencer partnerships, increasing organic traffic by 35%.
-  &emsp;➤ Created product listing modules using <b>Velo datasets and dynamic pages</b> for scalability.<br>
-  
-  ➤ <b>Founder & Front-End Developer at Deezin Studio</b> <i>(2024 - Present)</i><br>
-  <u>About:</u> Boutique agency offering web design & development for creatives and small businesses.
-  <u>Key achievements:</u>
-  &emsp;➤ Designed and deployed websites using <b>Wix, WordPress, and Shopify</b> with performance-first mindset.
-  &emsp;➤ Developed <b>custom Velo/Liquid/JS scripts</b> to manage forms, dynamic content, and booking systems.
-  &emsp;➤ Built reusable <b>UI kits and component libraries</b> for scalable design.
-  &emsp;➤ Led client discovery workshops and translated needs into <b>wireframes and dev specs</b>.
-  &emsp;➤ Managed full project lifecycles with integrated feedback and analytics.<br>
-  
-  ${PROMPT_MESSAGE}`,
-};
-
-const skillsCommands = {
-  frontend: `<b>🖥️ _Front-end Skills_</b>
-    ➤ HTML / CSS
-    ➤ React / React Native
-    ➤ Next.js
-    ➤ Liquid/Velo
-    ➤ Flutter (beginner)
-    ➤ E-commerce platforms (Wix, Shopify, Wordpress)\n
-  ${PROMPT_MESSAGE}`,
-
-  backend: `<b>⚙️ _Back-end Skills_</b>
-    ➤ Node.js
-    ➤ Javascript
-    ➤ GraphQL
-    ➤ Python (beginner)
-    ➤ MongoDB\n
-  ${PROMPT_MESSAGE}`,
-
-  other: `<b>🔧 _Other Skills_</b>
-    ➤ Git
-    ➤ APIs
-    ➤ Docker
-    ➤ IA (ChatGPT, MidJourney)
-    ➤ Photoshop
-    ➤ Blender\n
-  ${PROMPT_MESSAGE}`,
-};
+const skillsCategories = [
+  {
+    title: "Front-end Skills",
+    icon: "🖥️",
+    skills: [
+      "HTML / CSS",
+      "React / React Native",
+      "Next.js",
+      "Liquid/Velo",
+      "Flutter",
+      "E-commerce platforms"
+    ]
+  },
+  {
+    title: "Back-end Skills",
+    icon: "⚙️",
+    skills: [
+      "Node.js",
+      "Javascript",
+      "GraphQL",
+      "Python",
+      "MongoDB"
+    ]
+  },
+  {
+    title: "Other Skills",
+    icon: "🔧",
+    skills: [
+      "Git",
+      "APIs",
+      "Docker",
+      "IA Tools",
+      "Photoshop",
+      "Blender"
+    ]
+  }
+];
 
 const commands = {
-  experience: `<b>💼 _Experience Overview_</b>
-    ➤ Type <i>professional, personal</i> to see specific experiences.\n`,
+  experience: `<div class="command-section">
+    <div class="command-header">💼 Experience</div>
+    <div class="command-options">
+      <span class="command-option">professional</span> — View my professional journey
+      <span class="command-option">personal</span> — Explore my personal projects
+    </div>
+  </div>`,
 
-  skills: `<b>🧠 _Skills Overview_</b>
-    ➤ Type <i>frontend, backend,</i> or <i>other</i> to see specific skills.\n`,
+  skills: `<div class="command-section">
+    <div class="command-header">🧠 Skills</div>
+    <div class="command-options">
+      <span class="command-option">skills</span> — Browse my technical expertise
+    </div>
+  </div>`,
 
-  help: `<b>🆘 _Help Center_</b>
-    ➤ Type <i>menu</i> to see all available commands.
-    ➤ Try: <i>experience, skills, clear</i>\n`,
+  help: `<div class="command-section">
+    <div class="command-header">🆘 Quick Help</div>
+    <div class="command-options">
+      <span class="command-option">menu</span> — Show all available commands
+      <span class="command-option">experience</span> — View my experience
+      <span class="command-option">skills</span> — Check my skills
+      <span class="command-option">clear</span> — Reset the terminal
+    </div>
+    <div class="command-hint">💡 Keep exploring... you might find something special</div>
+  </div>`,
 
-  menu: `<b>📜 _Command Menu_</b>
-    ➤ Type <i>experience</i>: See my secret operations
-    ➤ Type <i>skills</i>: View my skills
-    ➤ Type <i>upload</i>: Download my CV
-    ➤ Type <i>help</i>: Quick help
-    ➤ Type <i>clear</i>: Clear the terminal\n`,
+  menu: `<div class="command-section">
+    <div class="command-header">📜 Command Menu</div>
+    <div class="command-options">
+      <span class="command-option">experience</span> — View my professional & personal journey
+      <span class="command-option">skills</span> — Explore my technical expertise
+      <span class="command-option">upload</span> — Download my CV
+      <span class="command-option">help</span> — Quick navigation guide
+      <span class="command-option">clear</span> — Reset the terminal
+    </div>
+    <div class="command-hint">💡 Some commands are hidden in plain sight...</div>
+  </div>`,
 
   secret: "Launching...",
 };
 
+// Format experience data for popup
+function formatExperiences(experiences, emoji) {
+  return experiences.map(exp => (
+    `<div class='experience-section'>
+      <div class='experience-section-title' style='font-size:1.1em;'>${emoji} <b>${exp.title}</b> <span style='font-size:0.9em;'>(${exp.period})</span></div>
+      <div class='experience-item'><b>${exp.role}</b> — <i>${exp.about}</i></div>
+      <div class='experience-section-title'>🏆 Achievements:</div>
+      <ul style='margin-left:1em;'>${exp.achievements.map(a => `<li>✨ ${a}</li>`).join('')}</ul>
+      <div class='experience-section-title'>🛠️ Technologies:</div>
+      <div class='experience-skills'>${exp.technologies.map(t => `<span class='skill-tag'>${t}</span>`).join(' ')}</div>
+    </div>`
+  )).join('<hr />');
+}
+
+// Format skills data for popup
+function formatSkills(skillsCategories) {
+  return skillsCategories.map(cat => (
+    `<div class='experience-section'>
+      <div class='experience-section-title'>${cat.icon} <b>${cat.title}</b></div>
+      <div class='experience-skills'>${cat.skills.map(s => `<span class='skill-tag'>${s}</span>`).join(' ')}</div>
+    </div>`
+  )).join('<hr />');
+}
+
 export const allCommands = {
   ...commands,
-  ...experienceCommands,
-  ...skillsCommands,
+  professionalExperiences,
+  personalExperiences,
+  skillsCategories,
+  formatExperiences,
+  formatSkills
 };
