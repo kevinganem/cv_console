@@ -66,6 +66,21 @@ const personalExperiences = [
     "technologies": ["React Native", "Firebase", "JavaScript", "UI/UX Design", "Gamification"]
   },
   {
+    "title": "CV Console",
+    "period": "2024-Present",
+    "role": "Developer & Designer",
+    "about": "Interactive Terminal-Style Online Resume Built with React",
+    "achievements": [
+      "Built a unique developer portfolio experience simulating a terminal environment using React and custom shell-style components",
+      "Designed responsive layout and animations for smooth command-line interactions and typing effects",
+      "Implemented a command parser to handle user input, allowing navigation through different CV sections (skills, projects, contact, etc.)",
+      "Added accessibility, and mobile support for broader reach and improved UX",
+      "Deployed the project on GitHub Pages with clean CI/CD setup",
+      "Received positive feedback for originality and technical creativity from recruiters and peers"
+    ],
+    "technologies": ["React", "JavaScript", "HTML/CSS", "UI/UX Design", "GitHub Pages"]
+  },
+  {
     "title": "Social Link App",
     "period": "2021",
     "role": "Developer for school project",
