@@ -1,35 +1,51 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { allCommands, TERMINAL_INTRO, PROMPT_MESSAGE_HTML } from '../helpers/terminalCommands';
+import { TERMINAL_INTRO } from '../helpers/cvData';
 import PopupTerminal from './PopupTerminal';
 import HackingSimulator from './HackingSimulator';
-import { playSound } from '../helpers/terminalHelpers';
+import { commandRegistry } from '../helpers/commandRegistry';
 import '../styles/terminal.css';
 import AnimatedBoot from './AnimatedBoot';
 import AnimatedWelcome from './AnimatedWelcome';
 
+/**
+ * Terminal component simulates a command-line interface for the CV.
+ * Handles user input, command history, popups, and special features.
+ */
 const Terminal = () => {
+    // State for the terminal command history (array of strings/HTML)
     const [commandHistory, setCommandHistory] = useState([]);
+    // State for the current input value
     const [input, setInput] = useState('');
+    // State for showing/hiding the popup modal
     const [showPopup, setShowPopup] = useState(false);
+    // State for the popup modal content (HTML string)
     const [popupContent, setPopupContent] = useState('');
+    // State for the popup modal title
     const [popupTitle, setPopupTitle] = useState('');
+    // State for showing/hiding the hacking simulator Easter egg
     const [showHacking, setShowHacking] = useState(false);
+    // State for showing the boot animation (true on first load)
     const [booting, setBooting] = useState(true);
+    // Ref to the terminal output container (for scrolling)
     const terminalRef = useRef(null);
+    // Ref to the input field (for focus management)
     const inputRef = useRef(null);
 
-    // Function to scroll to bottom
+    /**
+     * Scroll the terminal output to the bottom when command history changes.
+     */
     const scrollToBottom = () => {
         if (terminalRef.current) {
             terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
         }
     };
 
-    // Scroll to bottom when command history changes
+    // Auto-scroll on command history update
     useEffect(() => {
         scrollToBottom();
     }, [commandHistory]);
 
+    // On boot complete, show the welcome animation and focus input
     useEffect(() => {
         if (!booting) {
             setCommandHistory(TERMINAL_INTRO);
@@ -37,64 +53,59 @@ const Terminal = () => {
         }
     }, [booting]);
 
+    /**
+     * Handle sending a command (on Enter or button press).
+     * Adds the input to history, clears input, and delegates to the command registry.
+     */
     const handleSend = () => {
         const command = input.toLowerCase().trim();
         if (!command) return;
         setCommandHistory(prev => [...prev, `root@user:~$ > ${input}`]);
         setInput('');
 
-        if (command === 'secret') {
-            setShowHacking(true);
-        } else if (command === 'professional') {
-            setPopupTitle('💼 Professional Experience');
-            setPopupContent(allCommands.formatExperiences(allCommands.professionalExperiences, '💼'));
-            setShowPopup(true);
-        } else if (command === 'personal') {
-            setPopupTitle('🌟 Personal Experience');
-            setPopupContent(allCommands.formatExperiences(allCommands.personalExperiences, '🌟'));
-            setShowPopup(true);
-        } else if (command === 'skills') {
-            setPopupTitle('🧠 Skills');
-            setPopupContent(allCommands.formatSkills(allCommands.skillsCategories));
-            setShowPopup(true);
-        } else if (command === 'clear') {
-            setCommandHistory(['WELCOME_ANIMATED']);
-        } else if (command === 'upload') {
-            setCommandHistory(prev => [...prev, allCommands[command] || 'Uploading...']);
-        } else if (allCommands[command] && typeof allCommands[command] === 'string') {
-            setCommandHistory(prev => [...prev, allCommands[command]]);
+        // Prepare context for command handlers
+        const context = {
+            setCommandHistory,
+            setInput,
+            setShowPopup,
+            setPopupContent,
+            setPopupTitle,
+            setShowHacking,
+            refs: { inputRef, terminalRef }
+        };
+
+        // Find and execute the command handler, or show error if not found
+        if (commandRegistry[command]) {
+            commandRegistry[command](context, command);
         } else {
-            setCommandHistory(prev => [...prev, `<span class='error'>Command not found: <b>${command}</b>. Type <b>help</b> for available commands.</span>`]);
+            commandRegistry._default(context, command);
         }
         inputRef.current && inputRef.current.focus();
     };
 
-    const handleKeyDown = async (e) => {
+    /**
+     * Handle keydown events in the input field (submit on Enter).
+     */
+    const handleKeyDown = (e) => {
         if (e.key === 'Enter' && input.trim()) {
-            const command = input.toLowerCase().trim();
-            // Play sound immediately on keydown using shared helper
-            if (command === 'secret' || command === 'professional' || command === 'personal' || command === 'skills' || (allCommands[command] && typeof allCommands[command] === 'string')) {
-                playSound('default');
-            } else if (command === 'clear') {
-                playSound('clear');
-            } else if (command === 'upload') {
-                playSound('upload');
-            } else {
-                playSound('unknown');
-            }
             handleSend();
         }
     };
 
+    /**
+     * Callback for when the hacking simulator completes.
+     */
     function handleHackingComplete() {
         setShowHacking(false);
         // No message after secret sequence
     }
 
+    // Show boot animation on first load
     if (booting) {
         return <AnimatedBoot onComplete={() => setBooting(false)} />;
     }
 
+    // Main terminal UI
     return (
         <div className="terminal-container">
             <div className="terminal-window">
@@ -116,6 +127,7 @@ const Terminal = () => {
                         <HackingSimulator onComplete={handleHackingComplete} noScroll={true} />
                     ) : (
                         <>
+                        {/* Render command history, including animated welcome if present */}
                         {commandHistory.map((item, idx) => (
                             item === 'WELCOME_ANIMATED' ? (
                                 <AnimatedWelcome key={idx} />
@@ -140,6 +152,7 @@ const Terminal = () => {
                     )}
                 </div>
             </div>
+            {/* Popup modal for experience/skills */}
             {showPopup && (
                 <PopupTerminal
                     title={popupTitle}
